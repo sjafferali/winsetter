@@ -1,0 +1,26 @@
+#!/bin/bash
+
+FIREFOX=`osascript -e 'tell application "Firefox" to get the bounds of the first window'`
+ITUNES=`osascript -e 'tell application "iTunes" to get the bounds of the first window'`
+CHROME=`osascript -e 'tell application "Google Chrome" to get the bounds of the first window'`
+NOTES=`osascript -e 'tell application "Notational Velocity" to get the bounds of the first window'`
+ITERM=`osascript -e 'tell application "iTerm" to get the bounds of the first window'`
+I2TERM=`osascript -e 'tell application "iTerm" to get the bounds of the second window'`
+MAIL=`osascript -e 'tell application "Mail" to get the bounds of the first window'`
+ADIUMCHAT=`osascript -e 'tell application "Adium" to get the bounds of the first chat window'`
+ADIUMCONTACTS=`osascript -e 'tell application "Adium" to get the bounds of the window "contacts"'`
+
+
+TMP_FILE=`mktemp /tmp/win.XXXXXX`
+sed "s/FIREFOX/$FIREFOX/" win.template > $TMP_FILE
+sed -i '' "s/ITUNES/$ITUNES/" $TMP_FILE
+sed -i '' "s/CHROME/$CHROME/" $TMP_FILE
+sed -i '' "s/NOTES/$NOTES/" $TMP_FILE
+sed -i '' "s/MAIL/$MAIL/" $TMP_FILE
+sed -i '' "s/ITERM/$ITERM/" $TMP_FILE
+sed -i '' "s/I2TERM/$I2TERM/" $TMP_FILE
+sed -i '' "s/ADIUMCONTACTS/$ADIUMCONTACTS/" $TMP_FILE
+sed -i '' "s/ADIUMCHAT/$ADIUMCHAT/" $TMP_FILE
+cat $TMP_FILE
+rm -f $TMP_FILE
+

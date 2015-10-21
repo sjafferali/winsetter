@@ -1,0 +1,59 @@
+#!/usr/bin/osascript
+
+try
+tell application "Firefox"
+    activate
+    delay 4
+    set the bounds of the first window to {FIREFOX}
+end tell
+end try
+
+try
+tell application "iTunes"
+    activate
+    set the bounds of the first window to {ITUNES}
+end tell
+end try
+
+try
+tell application "Google Chrome"
+    activate
+    set the bounds of the first window to {CHROME}
+end tell
+end try
+
+try
+tell application "iTerm"
+    activate
+    set the bounds of the first window to {ITERM}
+    set the bounds of the second window to {I2TERM}
+end tell
+end try
+
+try
+tell application "Mail"
+    activate
+    set the bounds of the first window to {MAIL}
+end tell
+end try
+
+try
+tell application "Notational Velocity"
+    activate
+    set the bounds of the first window to {NOTES}
+end tell
+end try
+
+try
+
+tell application "Adium"
+    activate
+    tell window "contacts"
+        set the bounds to {ADIUMCONTACTS}
+    end tell
+    delay 5
+    tell chat windows
+        set the bounds to {ADIUMCHAT}
+    end tell
+end tell
+end try
